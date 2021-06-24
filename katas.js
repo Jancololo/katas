@@ -29,3 +29,16 @@ function wave(str){
     
     return waveArr
 }
+
+//Consecutive strings
+function longestConsec(strarr, k) {
+    if (k <= 0 || k > strarr.length) return '' 
+    let longest = ''
+    
+    for (let i = 0; i < strarr.length; i++) {
+       const current = strarr.slice(i, k + i).join('')
+       if (current.length > longest.length) longest = current
+    }
+
+    return longest
+}
