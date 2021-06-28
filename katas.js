@@ -62,3 +62,24 @@ function meeting(x, need) {
   
   return chairs.reduce((a, b) => a + b, 0) < need ? "Not enough!" : chairs
 }
+
+
+//IQ test 
+function iqTest(numbers){
+  let evens = []
+  let odds = []
+  
+  const numArr = numbers.split(' ')
+  numArr.forEach(num => num % 2 === 0 ? evens.push(num) : odds.push(num))
+  
+  return evens.length > odds.length ? numArr.indexOf(odds[0]) + 1 : numArr.indexOf(evens[0]) + 1
+}
+
+//Good vs Evil
+function goodVsEvil(good, evil){ 
+  const worth = [ [1, 2, 3, 3, 4, 10], [1, 2, 2, 2, 3, 5, 10] ];
+  const goodForce = good.split(' ').reduce((s,v,i) => s + worth[0][i] * v, 0);
+  const evilForce = evil.split(' ').reduce((s,v,i) => s + worth[1][i] * v, 0);
+  
+  return goodForce === evilForce ? 'Battle Result: No victor on this battle field' : goodForce > evilForce ? 'Battle Result: Good triumphs over Evil' : 'Battle Result: Evil eradicates all trace of Good'
+}
