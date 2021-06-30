@@ -83,3 +83,48 @@ function goodVsEvil(good, evil){
   
   return goodForce === evilForce ? 'Battle Result: No victor on this battle field' : goodForce > evilForce ? 'Battle Result: Good triumphs over Evil' : 'Battle Result: Evil eradicates all trace of Good'
 }
+
+//Roman Numerals Encoder
+function solution(number){
+  const reference = {
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1
+  }
+  
+  let roman = ''
+  
+  for (const key in reference) {
+    while (number >= reference[key]) {
+      roman += key
+      number -= reference[key]
+    }
+  }
+  
+  return roman
+}
+
+
+//Persistent Bugger
+function persistence(num) {
+  var times = 0;
+  
+  num = num.toString();
+  
+  while (num.length > 1) {
+    times++;
+    num = num.split('').map(Number).reduce((a, b) => a * b).toString();
+  }
+  
+  return times;
+}
